@@ -1,17 +1,17 @@
 # Chrome Web Store — submission notes
 
 Everything you need to paste into the Web Store developer dashboard. The
-packaged upload is built by `node scripts/build-zip.js` → `dist/mouth-of-sauron-store.zip`.
+packaged upload is built by `node scripts/build-zip.js` → `dist/grimas-bane-store.zip`.
 
 ## One-time setup
 1. Register a developer account at https://chrome.google.com/webstore/devconsole (one-time **$5** fee).
-2. Click **Add new item** → upload `dist/mouth-of-sauron-store.zip`.
+2. Click **Add new item** → upload `dist/grimas-bane-store.zip`.
 3. Fill in the fields below, add screenshots, submit for review (typically a few days).
 
 ## Listing fields
 
 **Name**
-> Mouth of Sauron — Shorts & Reels Blocker
+> Grima's Bane — Shorts & Reels Blocker
 
 **Summary** (≤132 chars)
 > Blocks Shorts and Reels on YouTube, Facebook, Instagram, and TikTok — until you toggle a site off. On by default.
@@ -25,7 +25,7 @@ packaged upload is built by `node scripts/build-zip.js` → `dist/mouth-of-sauro
 **Description**
 > Reclaim your attention from the endless scroll.
 >
-> Mouth of Sauron shuts the short-form feed across the four biggest offenders:
+> Grima's Bane shuts the short-form feed across the four biggest offenders:
 >
 > • YouTube — hides Shorts shelves, the sidebar Shorts entry, and Shorts grid rows, and redirects /shorts/ links to the normal watch page.
 > • Facebook — hides Reels cards and the Reels nav entry, and redirects Reels URLs to your home feed.

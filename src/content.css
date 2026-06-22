@@ -1,41 +1,41 @@
 /*
-  Mouth of Sauron — static hide rules.
-  Default = BLOCKING ON. The content script adds `mos-allow-<platform>` to <html>
+  Grima's Bane — static hide rules.
+  Default = BLOCKING ON. The content script adds `gb-allow-<platform>` to <html>
   ONLY when that platform is toggled off, which un-hides everything below.
   Hiding by default (no JS wait) means no flash of Shorts before settings load.
 */
 
 /* ---------------- YouTube ---------------- */
-html:not(.mos-allow-youtube) ytd-reel-shelf-renderer,
-html:not(.mos-allow-youtube) ytm-reel-shelf-renderer,
-html:not(.mos-allow-youtube) ytd-rich-shelf-renderer[is-shorts],
-html:not(.mos-allow-youtube) ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
-html:not(.mos-allow-youtube) ytd-rich-grid-row:has(a[href^="/shorts"]),
-html:not(.mos-allow-youtube) ytd-video-renderer:has(a[href^="/shorts"]),
-html:not(.mos-allow-youtube) grid-shelf-view-model:has(a[href^="/shorts"]),
-html:not(.mos-allow-youtube) ytd-guide-entry-renderer:has(a[title="Shorts"]),
-html:not(.mos-allow-youtube) ytd-mini-guide-entry-renderer:has(a[title="Shorts"]),
-html:not(.mos-allow-youtube) ytd-guide-entry-renderer:has(> a[href="/shorts"]),
-html:not(.mos-allow-youtube) [is-shorts] {
+html:not(.gb-allow-youtube) ytd-reel-shelf-renderer,
+html:not(.gb-allow-youtube) ytm-reel-shelf-renderer,
+html:not(.gb-allow-youtube) ytd-rich-shelf-renderer[is-shorts],
+html:not(.gb-allow-youtube) ytd-rich-section-renderer:has(ytd-rich-shelf-renderer[is-shorts]),
+html:not(.gb-allow-youtube) ytd-rich-grid-row:has(a[href^="/shorts"]),
+html:not(.gb-allow-youtube) ytd-video-renderer:has(a[href^="/shorts"]),
+html:not(.gb-allow-youtube) grid-shelf-view-model:has(a[href^="/shorts"]),
+html:not(.gb-allow-youtube) ytd-guide-entry-renderer:has(a[title="Shorts"]),
+html:not(.gb-allow-youtube) ytd-mini-guide-entry-renderer:has(a[title="Shorts"]),
+html:not(.gb-allow-youtube) ytd-guide-entry-renderer:has(> a[href="/shorts"]),
+html:not(.gb-allow-youtube) [is-shorts] {
   display: none !important;
 }
 
 /* ---------------- Facebook ---------------- */
-html:not(.mos-allow-facebook) a[href^="/reel/"],
-html:not(.mos-allow-facebook) a[href^="https://www.facebook.com/reel/"],
-html:not(.mos-allow-facebook) div[aria-label="Reels"] {
+html:not(.gb-allow-facebook) a[href^="/reel/"],
+html:not(.gb-allow-facebook) a[href^="https://www.facebook.com/reel/"],
+html:not(.gb-allow-facebook) div[aria-label="Reels"] {
   /* The content script also climbs to the surrounding feed card and hides it. */
   display: none !important;
 }
 
 /* ---------------- Instagram ---------------- */
-html:not(.mos-allow-instagram) a[href="/reels/"],
-html:not(.mos-allow-instagram) a[href^="/reels/"][role="link"] {
+html:not(.gb-allow-instagram) a[href="/reels/"],
+html:not(.gb-allow-instagram) a[href^="/reels/"][role="link"] {
   display: none !important;
 }
 
 /* ---------------- Block overlay (TikTok + hard blocks) ---------------- */
-#mos-block-overlay {
+#gb-block-overlay {
   position: fixed;
   inset: 0;
   z-index: 2147483647;
@@ -50,10 +50,10 @@ html:not(.mos-allow-instagram) a[href^="/reels/"][role="link"] {
   text-align: center;
   padding: 32px;
 }
-#mos-block-overlay .mos-eye { font-size: 64px; line-height: 1; filter: drop-shadow(0 0 18px #c41212); }
-#mos-block-overlay h1 { font-size: 26px; margin: 0; letter-spacing: 0.5px; color: #ff5a5a; }
-#mos-block-overlay p { font-size: 15px; margin: 0; max-width: 480px; color: #c9a9a9; line-height: 1.5; }
-#mos-block-overlay code {
+#gb-block-overlay .gb-eye { font-size: 64px; line-height: 1; filter: drop-shadow(0 0 18px #c41212); }
+#gb-block-overlay h1 { font-size: 26px; margin: 0; letter-spacing: 0.5px; color: #ff5a5a; }
+#gb-block-overlay p { font-size: 15px; margin: 0; max-width: 480px; color: #c9a9a9; line-height: 1.5; }
+#gb-block-overlay code {
   background: #1c0303; border: 1px solid #5a1212; border-radius: 6px;
   padding: 2px 8px; color: #ffb3b3; font-size: 13px;
 }

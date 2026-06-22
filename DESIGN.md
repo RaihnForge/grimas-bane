@@ -1,4 +1,4 @@
-# Mouth of Sauron — Design (CON)
+# Grima's Bane — Design (CON)
 
 ## Vision
 
@@ -7,8 +7,9 @@ video is engineered to be involuntary — the scroll arrives before the decision
 does. This tool moves the default: the feed is closed, and opening it is a
 deliberate act, not a reflex.
 
-The name is the whole thesis. The Mouth of Sauron was the herald that spoke the
-endless words of the Dark Tower. This shuts it.
+The name is the whole thesis. Grima Wormtongue whispered King Theoden into
+passivity — head bowed, will gone, while Rohan rotted around him. The short-form
+feed is that whisper in your ear: stay, scroll, don't act. This is its bane.
 
 ## What success feels like
 
@@ -33,12 +34,14 @@ endless words of the Dark Tower. This shuts it.
 
 ## Aesthetic
 
-Sauron's palette: near-black grounds, blood-red (`#c41212`) accents, bone-white
-on the mark. The icon is a clenched fanged maw — a shut mouth. The TikTok block
-curtain and the popup share the same dark-red language so the brand reads as one
-held breath: the mouth, closed.
+Mordor's palette: near-black grounds, blood-red (`#c41212`) accents, bone-white
+on the mark. The icon is a forked serpent tongue — Wormtongue's whisper — cut
+silent by a single bone-white stroke, the bane. The TikTok block curtain and the
+popup share the same dark-red language so the brand reads as one held breath:
+the whisper, cut off.
 
 ## Tone of copy
 
-Spare and a little mythic, never preachy. "The Mouth is shut." "Toggle off to
-pass." It should feel like a quiet ward, not a content filter scolding you.
+Spare and a little mythic, never preachy. "The whisper is broken." "Toggle off
+to let it speak." It should feel like a quiet ward, not a content filter
+scolding you.

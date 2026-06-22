@@ -6,7 +6,7 @@
 
 ## Directives
 
-- [x] Onboard Mouth of Sauron into the ecosystem (pillar docs, root CLAUDE.md,
+- [x] Onboard Grima's Bane into the ecosystem (pillar docs, root CLAUDE.md,
       workspace.manifest, project-tracker, developer assignment). (2026-06-21)
 - [ ] **Selector-hardening verification.** Before cutting v0.2.0, load all four
       sites and confirm every hide rule + redirect still fires against current

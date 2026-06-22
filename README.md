@@ -1,10 +1,10 @@
-# Mouth of Sauron
+# Grima's Bane
 
 A Chrome (MV3) extension that **shuts the short-form feed**. Blocks Shorts / Reels
 on YouTube, Facebook, Instagram, and TikTok — unless you toggle a platform off.
 
-> The Mouth of Sauron was the herald that spoke the endless words of the Dark Tower.
-> This shuts it.
+> Grima Wormtongue whispered the king into a stupor while his realm rotted.
+> The short-form feed is that whisper. This is its bane.
 
 ## What it does
 
@@ -22,7 +22,7 @@ Blocking is **on by default**. The toggle is the off switch — "unless turned o
 1. Open `chrome://extensions`
 2. Turn on **Developer mode** (top-right)
 3. Click **Load unpacked**
-4. Select the folder: `c:\development\dev-tools\mouth-of-sauron`
+4. Select the folder: `c:\development\dev-tools\grimas-bane`
 5. Pin the red "no" icon to the toolbar if you like.
 
 Click the icon to open the popup — a master switch plus one toggle per platform.
@@ -52,7 +52,7 @@ How a new version reaches you depends on how it was installed:
 | **Self-hosted `update_url`** | Possible, not used | Chromium can poll an update manifest XML, but Chrome blocks off-store installs on Windows without enterprise policy, so this path isn't worth it for a personal tool. Stick with the Web Store for auto-update. |
 
 Releasing a new version: bump `version` in **both** `manifest.json` and
-`package.json`, run `node scripts/build-zip.js`, and upload `dist/mouth-of-sauron-store.zip`
+`package.json`, run `node scripts/build-zip.js`, and upload `dist/grimas-bane-store.zip`
 to the Web Store dashboard (or just push to `main` for unpacked users to pull).
 
 ## Maintenance note

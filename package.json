@@ -1,14 +1,14 @@
 {
-  "name": "mouth-of-sauron",
+  "name": "grimas-bane",
   "version": "0.1.0",
   "description": "Chrome (MV3) extension that blocks Shorts/Reels on YouTube, Facebook, Instagram, and TikTok — unless toggled off.",
   "private": false,
   "license": "MIT",
   "author": "Joshua Keyes (RaihnForge)",
-  "homepage": "https://raihnforge.github.io/mouth-of-sauron/",
+  "homepage": "https://raihnforge.github.io/grimas-bane/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/RaihnForge/mouth-of-sauron.git"
+    "url": "https://github.com/RaihnForge/grimas-bane.git"
   },
   "scripts": {
     "build:icons": "node scripts/generate-icons.js",

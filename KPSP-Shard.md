@@ -1,14 +1,14 @@
-# Mouth of Sauron — KPSP Shard (CON + MON)
+# Grima's Bane — KPSP Shard (CON + MON)
 
 > Project/product state. ExPod (project-tracker) authors the structure; sessions
 > manage the backlog. Keep this in sync after every feature.
 
 ## Snapshot
 
-- **Project:** Mouth of Sauron (Shorts/Reels blocker)
+- **Project:** Grima's Bane (Shorts/Reels blocker)
 - **Category:** dev-tools (internal utility) — sovereign
-- **Repo:** `RaihnForge/mouth-of-sauron` (public)
-- **Landing:** https://raihnforge.github.io/mouth-of-sauron/
+- **Repo:** `RaihnForge/grimas-bane` (public)
+- **Landing:** https://raihnforge.github.io/grimas-bane/
 - **Version:** 0.1.0
 - **Phase:** execution (shipped v0.1.0, unpacked; Web Store pending)
 - **Developer:** Thane
@@ -17,7 +17,7 @@
 ## Milestones
 
 - [x] **M1 — Working extension.** MV3, 4 platforms, default-on, popup toggles. (2026-06-21)
-- [x] **M2 — Brand + publish.** Fanged-maw icon, GitHub Pages landing, public repo. (2026-06-21)
+- [x] **M2 — Brand + publish.** Forked-tongue + bane icon, GitHub Pages landing, public repo. (2026-06-21)
 - [ ] **M3 — Chrome Web Store listing.** Upload `dist` zip, screenshots, review, live. (needs Joshua's dev account + $5)
 - [ ] **M4 — Selector hardening pass.** Verify hide rules against current YouTube/Meta/TikTok markup; add fallbacks.
 

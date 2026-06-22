@@ -1,7 +1,7 @@
 /*
   Builds a clean Chrome Web Store upload zip containing ONLY the runtime files
   (manifest, src, icons) — no docs, scripts, or repo cruft. Stdlib only.
-  Run: node scripts/build-zip.js  ->  dist/mouth-of-sauron-store.zip
+  Run: node scripts/build-zip.js  ->  dist/grimas-bane-store.zip
 */
 
 const fs = require("fs");
@@ -10,7 +10,7 @@ const zlib = require("zlib");
 
 const root = path.join(__dirname, "..");
 const outDir = path.join(root, "dist");
-const outFile = path.join(outDir, "mouth-of-sauron-store.zip");
+const outFile = path.join(outDir, "grimas-bane-store.zip");
 
 // Files/dirs to include in the package.
 const INCLUDE = ["manifest.json", "src", "icons"];

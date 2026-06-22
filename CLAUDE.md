@@ -1,4 +1,4 @@
-# Mouth of Sauron — AI Instructions (CON)
+# Grima's Bane — AI Instructions (CON)
 
 ## Developer: Thane
 
@@ -14,11 +14,11 @@ by default**; the toolbar popup is the off switch ("unless turned off").
 
 Sovereign tool. PC-agnostic (any Chromium browser). Published as a public repo
 under the **RaihnForge** personal account — not E4Keyes — because the GitHub
-Pages landing site must resolve at `raihnforge.github.io/mouth-of-sauron/`.
+Pages landing site must resolve at `raihnforge.github.io/grimas-bane/`.
 
 ## Ownership boundaries
 
-Mouth of Sauron owns **only** short-form feed suppression on the four supported
+Grima's Bane owns **only** short-form feed suppression on the four supported
 hosts: the per-platform hide rules, the short-form URL redirects, the TikTok
 block curtain, and the popup toggle UI/state. It does **not**:
 
@@ -37,7 +37,7 @@ different tool. Say so.
   The two `scripts/*.js` helpers are Node **stdlib only** (zlib for PNG/zip).
 - **Default-hide via CSS, un-hide via JS.** `content.css` hides Shorts at
   `document_start` with no settings wait (no flash). The content script only
-  *adds* `mos-allow-<platform>` to `<html>` when a site is toggled off. Never
+  *adds* `gb-allow-<platform>` to `<html>` when a site is toggled off. Never
   invert this — hiding must be the zero-JS default.
 - **URL redirects are the stable layer; DOM selectors are the fragile layer.**
   When a platform reshuffles its markup, the selectors in `content.css` and the
@@ -47,8 +47,8 @@ different tool. Say so.
 
 ## Build / release
 
-- `node scripts/generate-icons.js` — regenerate `icons/*.png` (fanged-maw mark).
-- `node scripts/build-zip.js` — produce `dist/mouth-of-sauron-store.zip` for a
+- `node scripts/generate-icons.js` — regenerate `icons/*.png` (forked-tongue + bane mark).
+- `node scripts/build-zip.js` — produce `dist/grimas-bane-store.zip` for a
   Chrome Web Store upload (runtime files only; gitignored).
 - Landing page lives in `docs/` and is served by GitHub Pages from `/docs`.
 

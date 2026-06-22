@@ -1,4 +1,4 @@
-/* Mouth of Sauron — popup controller. */
+/* Grima's Bane — popup controller. */
 
 var DEFAULTS = {
   master: true,

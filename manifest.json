@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Mouth of Sauron",
+  "name": "Grima's Bane",
   "version": "0.1.0",
   "description": "Shuts the mouth that spews the feed. Blocks Shorts/Reels on YouTube, Facebook, Instagram, and TikTok — unless you toggle it off.",
   "icons": {
@@ -11,7 +11,7 @@
   },
   "permissions": ["storage"],
   "action": {
-    "default_title": "Mouth of Sauron",
+    "default_title": "Grima's Bane",
     "default_popup": "src/popup.html",
     "default_icon": {
       "16": "icons/icon16.png",

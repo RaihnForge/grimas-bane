@@ -1,4 +1,4 @@
-# Mouth of Sauron — Architecture (CON)
+# Grima's Bane — Architecture (CON)
 
 ## Overview
 
@@ -9,7 +9,7 @@ state is four-plus booleans in `chrome.storage.sync`.
 ```
 manifest.json ── declares content script (document_start) on 4 hosts + popup action
    │
-   ├── src/content.css   default-HIDE rules, keyed on html:not(.mos-allow-<platform>)
+   ├── src/content.css   default-HIDE rules, keyed on html:not(.gb-allow-<platform>)
    ├── src/content.js    reads settings → toggles allow-class, redirects, observes DOM
    └── src/popup.*        toolbar UI: master + per-site toggles → writes storage.sync
 
@@ -38,7 +38,7 @@ docs/                        GitHub Pages landing site
 3. If a platform is **enabled** (master AND that site): leave the hide-CSS active,
    run the redirect for the current URL, start the DOM observer (Meta sites),
    inject the block overlay (TikTok).
-4. If **disabled**: add `mos-allow-<platform>` to `<html>` (un-hides the CSS),
+4. If **disabled**: add `gb-allow-<platform>` to `<html>` (un-hides the CSS),
    stop the observer, remove any overlay.
 5. The popup writes booleans; `storage.onChanged` re-applies live for CSS-based
    changes. Redirect/overlay changes take effect on the next load — the popup

@@ -1,10 +1,10 @@
 /*
-  Mouth of Sauron — content script.
+  Grima's Bane — content script.
   Runs at document_start on YouTube, Facebook, Instagram, TikTok.
 
   Default state: BLOCKING ON for every platform. Settings live in
   chrome.storage.sync. When a platform is toggled off we add
-  `mos-allow-<platform>` to <html>, which un-hides the CSS rules in
+  `gb-allow-<platform>` to <html>, which un-hides the CSS rules in
   content.css and disables redirects/overlays for that site.
 */
 
@@ -118,17 +118,17 @@
   // ---------------- Block overlay (TikTok) ----------------
 
   function injectBlockOverlay() {
-    if (document.getElementById("mos-block-overlay")) return;
+    if (document.getElementById("gb-block-overlay")) return;
     var build = function () {
-      if (document.getElementById("mos-block-overlay")) return;
+      if (document.getElementById("gb-block-overlay")) return;
       var root = document.documentElement;
       var o = document.createElement("div");
-      o.id = "mos-block-overlay";
+      o.id = "gb-block-overlay";
       o.innerHTML =
-        '<div class="mos-eye">👁️</div>' +
-        "<h1>The Mouth is shut.</h1>" +
-        "<p>TikTok is silenced by the Mouth of Sauron. The whole feed is Shorts, so the whole site is held.</p>" +
-        "<p>Open the extension and toggle <code>TikTok</code> off to pass.</p>";
+        '<div class="gb-eye">🐍</div>' +
+        "<h1>The whisper is broken.</h1>" +
+        "<p>TikTok is all whisper — the whole feed is Shorts, so the whole site is held silent.</p>" +
+        "<p>Open the extension and toggle <code>TikTok</code> off to let it speak.</p>";
       root.appendChild(o);
       // Stop the feed from playing/loading behind the curtain.
       try {
@@ -140,7 +140,7 @@
   }
 
   function removeBlockOverlay() {
-    var o = document.getElementById("mos-block-overlay");
+    var o = document.getElementById("gb-block-overlay");
     if (o) o.remove();
     try {
       document.documentElement.style.removeProperty("overflow");
@@ -153,8 +153,8 @@
     var enabled = settings.master && settings[PLATFORM];
     active = enabled;
 
-    // Class controls the CSS hide rules: present `mos-allow-X` => show.
-    document.documentElement.classList.toggle("mos-allow-" + PLATFORM, !enabled);
+    // Class controls the CSS hide rules: present `gb-allow-X` => show.
+    document.documentElement.classList.toggle("gb-allow-" + PLATFORM, !enabled);
 
     if (!enabled) {
       stopObserver();
