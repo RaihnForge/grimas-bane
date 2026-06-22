@@ -17,7 +17,7 @@
 ## Milestones
 
 - [x] **M1 — Working extension.** MV3, 4 platforms, default-on, popup toggles. (2026-06-21)
-- [x] **M2 — Brand + publish.** Forked-tongue + bane icon, GitHub Pages landing, public repo. (2026-06-21)
+- [x] **M2 — Brand + publish.** Hooded-shade icon (red X eyes), GitHub Pages landing, public repo. (2026-06-21)
 - [ ] **M3 — Chrome Web Store listing.** Upload `dist` zip, screenshots, review, live. (needs Joshua's dev account + $5)
 - [ ] **M4 — Selector hardening pass.** Verify hide rules against current YouTube/Meta/TikTok markup; add fallbacks.
 

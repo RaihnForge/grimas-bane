@@ -47,7 +47,7 @@ different tool. Say so.
 
 ## Build / release
 
-- `node scripts/generate-icons.js` — regenerate `icons/*.png` (forked-tongue + bane mark).
+- `node scripts/generate-icons.js` — regenerate `icons/*.png` (hooded-shade mark).
 - `node scripts/build-zip.js` — produce `dist/grimas-bane-store.zip` for a
   Chrome Web Store upload (runtime files only; gitignored).
 - Landing page lives in `docs/` and is served by GitHub Pages from `/docs`.

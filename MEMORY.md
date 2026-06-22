@@ -25,9 +25,13 @@ Cross-session AI memory + breadcrumbs. Newest first.
   (Joshua's pick; Wormtongue's whisper = the feed, this is its bane). Full rename:
   GitHub repo `mouth-of-sauron` → `grimas-bane` (Pages URL moved, old auto-redirects),
   local folder + all 4 cross-repo registrations, slug, the `mos-`→`gb-` CSS class
-  prefix, and the icon. Icon went maw → **red forked serpent tongue cut by a
-  bone-white diagonal stroke** (kept the red/bone palette so the popup/overlay/
-  landing didn't need repainting). Palette/UI colors unchanged.
+  prefix, and the icon. Popup/overlay/landing UI colors unchanged (dark-red).
+- **2026-06-21 (icon)** — Icon iterated maw → forked serpent tongue → **final:
+  a hooded shade** on a dark disc (grey cloak, black face void, two dead red X
+  eyes), from a reference image Joshua supplied. `generate-icons.js` now renders
+  it via polygon fill + 4× supersampling for clean AA (point-in-poly + segment
+  distance, all in 0..1 coords). Tunables at the top of `draw()`: `HOOD`/`FACE`
+  polygons, `rDisc`, eye position/size.
 - **Open follow-up:** Web Store submission is the next real milestone but needs
   Joshua's registered dev account ($5) and screenshots — can't be done from here.
 

@@ -34,11 +34,11 @@ feed is that whisper in your ear: stay, scroll, don't act. This is its bane.
 
 ## Aesthetic
 
-Mordor's palette: near-black grounds, blood-red (`#c41212`) accents, bone-white
-on the mark. The icon is a forked serpent tongue — Wormtongue's whisper — cut
-silent by a single bone-white stroke, the bane. The TikTok block curtain and the
-popup share the same dark-red language so the brand reads as one held breath:
-the whisper, cut off.
+The palette is shadow and blood: a near-black disc, a grey hooded cloak, and two
+dead red (`#e22222`) X eyes. The icon is the whisperer himself — hooded,
+faceless, silenced. The TikTok block curtain and the popup share the same
+dark-red language so the mark and the UI read as one held breath: the whisperer,
+hooded and quiet.
 
 ## Tone of copy
 

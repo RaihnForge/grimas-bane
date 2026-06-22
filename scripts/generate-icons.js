@@ -1,7 +1,7 @@
 /*
   Generates the extension icons with Node stdlib only (zlib for PNG deflate).
-  Design: a red forked serpent tongue (Wormtongue's whisper) cut by a bone-white
-  diagonal stroke — the bane. Run: node scripts/generate-icons.js
+  Design: a hooded shade on a dark disc — grey cloak, black face void, two dead
+  red X eyes (the silenced whisperer). Run: node scripts/generate-icons.js
 */
 
 const zlib = require("zlib");
@@ -61,70 +61,101 @@ function encodePng(width, height, rgba) {
   ]);
 }
 
-// Grima's Bane mark: a red forked serpent tongue (Wormtongue's whisper) rising
-// and splitting near the top, cut by a single bone-white diagonal stroke — the
-// bane that silences it. Dark field, blood-red tongue, bone-white cut.
-function distSeg(px, py, ax, ay, bx, by) {
-  const dx = bx - ax;
-  const dy = by - ay;
-  const len2 = dx * dx + dy * dy;
-  let t = len2 ? ((px - ax) * dx + (py - ay) * dy) / len2 : 0;
+// Grima's Bane mark: a hooded shade on a dark disc — grey cloak/hood, black face
+// void, two dead red X eyes. The silenced whisperer. Coordinates are in 0..1
+// (fractions of the icon) so the design is resolution-independent; rendered with
+// 4x supersampling for clean anti-aliased edges and transparent corners.
+
+// Hood/cloak outer silhouette (closed polygon, clockwise from the peak).
+var HOOD = [
+  [0.50, 0.105],
+  [0.590, 0.150], [0.668, 0.232], [0.720, 0.340], [0.748, 0.460], [0.752, 0.560],
+  [0.792, 0.648], [0.828, 0.738], [0.815, 0.800],
+  [0.730, 0.792], [0.640, 0.788], [0.560, 0.802], [0.50, 0.778],
+  [0.440, 0.802], [0.360, 0.788], [0.270, 0.792], [0.185, 0.800],
+  [0.172, 0.738], [0.208, 0.648], [0.248, 0.560],
+  [0.252, 0.460], [0.280, 0.340], [0.332, 0.232], [0.410, 0.150]
+];
+
+// Inner face opening (black void where the eyes sit).
+var FACE = [
+  [0.50, 0.300],
+  [0.566, 0.365], [0.610, 0.450], [0.625, 0.535], [0.600, 0.618], [0.553, 0.682], [0.50, 0.718],
+  [0.447, 0.682], [0.400, 0.618], [0.375, 0.535], [0.390, 0.450], [0.434, 0.365]
+];
+
+function pointInPoly(px, py, poly) {
+  var inside = false;
+  for (var i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    var xi = poly[i][0], yi = poly[i][1];
+    var xj = poly[j][0], yj = poly[j][1];
+    if (((yi > py) !== (yj > py)) &&
+        (px < ((xj - xi) * (py - yi)) / (yj - yi) + xi)) {
+      inside = !inside;
+    }
+  }
+  return inside;
+}
+
+function segDist(px, py, ax, ay, bx, by) {
+  var dx = bx - ax, dy = by - ay;
+  var len2 = dx * dx + dy * dy;
+  var t = len2 ? ((px - ax) * dx + (py - ay) * dy) / len2 : 0;
   t = Math.max(0, Math.min(1, t));
-  const qx = ax + t * dx;
-  const qy = ay + t * dy;
-  return { d: Math.hypot(px - qx, py - qy), t: t };
+  return Math.hypot(px - (ax + t * dx), py - (ay + t * dy));
 }
 
 function draw(n) {
   const buf = Buffer.alloc(n * n * 4);
-  const cx = (n - 1) / 2;
+  const SS = 4; // supersampling factor per axis
 
-  const BG = [18, 3, 3];
-  const TONGUE = [210, 24, 24];
-  const OUTLINE = [12, 2, 2];
-  const BANE = [242, 236, 222];
+  const BG = [24, 26, 28];    // dark disc behind the figure
+  const HOODC = [96, 100, 105]; // grey cloak
+  const FACEC = [9, 9, 11];   // black face void
+  const EYE = [226, 34, 34];  // dead red X eyes
 
-  // Tongue geometry.
-  const forkX = cx, forkY = 0.46 * n;     // where the tongue splits
-  const baseX = cx, baseY = 0.93 * n;     // bottom root
-  const tipLX = cx - 0.20 * n, tipLY = 0.15 * n; // left prong tip
-  const tipRX = cx + 0.20 * n, tipRY = 0.15 * n; // right prong tip
-  const stemHalf = 0.105 * n;             // stem half-thickness
-  const prongBase = 0.095 * n;            // prong half-thickness at the fork
-  const prongTip = 0.6;                   // prong half-thickness at the tip (near a point)
+  const cx = 0.5, cy = 0.5, rDisc = 0.485; // disc kept tight so the head dominates
+  const eyeL = [0.430, 0.508], eyeR = [0.570, 0.508];
+  const eHalf = 0.058, eThick = 0.030;
 
-  // Bane: a single diagonal stroke cutting the tongue silent. Endpoints run past
-  // the canvas so the caps fall off-frame — it reads as a clean slash, not a pill.
-  const bAx = -0.08 * n, bAy = 0.27 * n;
-  const bBx = 1.08 * n, bBy = 0.73 * n;
-  const baneHalf = Math.max(1.3, 0.072 * n);
+  function eyeHit(fx, fy, e) {
+    var d = Math.min(
+      segDist(fx, fy, e[0] - eHalf, e[1] - eHalf, e[0] + eHalf, e[1] + eHalf),
+      segDist(fx, fy, e[0] - eHalf, e[1] + eHalf, e[0] + eHalf, e[1] - eHalf)
+    );
+    return d <= eThick / 2;
+  }
 
-  function plot(buf, i, c) {
-    buf[i] = c[0];
-    buf[i + 1] = c[1];
-    buf[i + 2] = c[2];
-    buf[i + 3] = 255;
+  function sample(fx, fy) {
+    var dxc = fx - cx, dyc = fy - cy;
+    if (dxc * dxc + dyc * dyc > rDisc * rDisc) return null; // transparent corner
+    if (eyeHit(fx, fy, eyeL) || eyeHit(fx, fy, eyeR)) return EYE;
+    if (pointInPoly(fx, fy, FACE)) return FACEC;
+    if (pointInPoly(fx, fy, HOOD)) return HOODC;
+    return BG;
   }
 
   for (let y = 0; y < n; y++) {
     for (let x = 0; x < n; x++) {
+      let r = 0, g = 0, b = 0, hits = 0;
+      for (let sy = 0; sy < SS; sy++) {
+        for (let sx = 0; sx < SS; sx++) {
+          const fx = (x + (sx + 0.5) / SS) / n;
+          const fy = (y + (sy + 0.5) / SS) / n;
+          const c = sample(fx, fy);
+          if (c) { r += c[0]; g += c[1]; b += c[2]; hits++; }
+        }
+      }
       const i = (y * n + x) * 4;
-      let col = BG;
-
-      // Stem (rounded caps via segment distance).
-      if (distSeg(x, y, baseX, baseY, forkX, forkY).d <= stemHalf) col = TONGUE;
-      // Forked prongs, tapering to a point at each tip.
-      const pl = distSeg(x, y, forkX, forkY, tipLX, tipLY);
-      if (pl.d <= prongBase * (1 - pl.t) + prongTip * pl.t) col = TONGUE;
-      const pr = distSeg(x, y, forkX, forkY, tipRX, tipRY);
-      if (pr.d <= prongBase * (1 - pr.t) + prongTip * pr.t) col = TONGUE;
-
-      // The bane: dark outline, then bone-white core, laid over everything.
-      const b = distSeg(x, y, bAx, bAy, bBx, bBy).d;
-      if (b <= baneHalf + 1.6) col = OUTLINE;
-      if (b <= baneHalf) col = BANE;
-
-      plot(buf, i, col);
+      const total = SS * SS;
+      if (hits === 0) {
+        buf[i] = buf[i + 1] = buf[i + 2] = buf[i + 3] = 0;
+      } else {
+        buf[i] = Math.round(r / hits);
+        buf[i + 1] = Math.round(g / hits);
+        buf[i + 2] = Math.round(b / hits);
+        buf[i + 3] = Math.round((hits / total) * 255);
+      }
     }
   }
   return buf;
